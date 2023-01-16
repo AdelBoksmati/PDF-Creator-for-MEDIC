@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Document, Page } from 'react-pdf';
 import './App.css';
 import MyForm from './form.js';
@@ -12,13 +12,13 @@ import MyForm from './form.js';
 
 function App() {
 
-  const url = 'localhost:3000/formPDF.pdf'
+  const url = useRef(null);
 
   const [pdfRef, setPdfRef] = useState(null);
 
   const downloadPDF = () => {
     if (pdfRef) {
-        pdfRef.current.save();
+        pdfRef.current.save("my-form.pdf");
     }
   };
   

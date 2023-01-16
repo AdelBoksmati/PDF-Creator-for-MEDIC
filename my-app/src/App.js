@@ -1,26 +1,30 @@
 import React, { useRef, useState } from 'react';
 import { Document, Page } from 'react-pdf';
+import { pdfjs } from 'react-pdf';
 import './App.css';
 import MyForm from './form.js';
+import FileSaver from 'file-saver';
+import jsPDF from 'jspdf';
 
-// how to start - Marek's Notes
-// cd '.\COMPCO867 Software Engineering Project\my-app' 
-// INSTALL THIS IN THE ROOT FOLDER OF THE PROJECT
-// npm install react-pdf
-// npm start
-
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 function App() {
 
-  const url = useRef(null);
+  const pdfRef = useRef(null);
+  const [formData, setFormData] = useState({});
 
-  const [pdfRef, setPdfRef] = useState(null);
+  function handleFormChange(event) {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    });
+  }
 
-  const downloadPDF = () => {
-    if (pdfRef) {
-        pdfRef.current.save("my-form.pdf");
-    }
-  };
+  function downloadPDF() {
+    const doc = new jsPDF();
+    doc.text("Hello world!", 10, 10); // This is an example, putting in formdata does not work or even JSON.stringify(formData)
+    doc.save('my-form.pdf');
+  }
   
   return (
     <div className="App">
@@ -29,9 +33,10 @@ function App() {
         <MyForm />
 
         <button onClick={downloadPDF}>Download PDF</button>
-        <Document file={url} ref={setPdfRef}>
+
+        <Document file="my-form.pdf" ref={pdfRef}>
           <Page>
-            <MyForm />
+            <MyForm handleFormChange={handleFormChange}/>
           </Page>
         </Document>
       </header>

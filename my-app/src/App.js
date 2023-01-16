@@ -26,15 +26,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Registration Form</h1>
+        <MyForm />
+
+        <button onClick={downloadPDF}>Download PDF</button>
+        <Document file={url} ref={setPdfRef}>
+          <Page>
+            <MyForm />
+          </Page>
+        </Document>
       </header>
-
-      <button onClick={downloadPDF}>Download PDF</button>
-      <Document file={url} ref={setPdfRef}>
-        <Page>
-          <MyForm />
-        </Page>
-      </Document>
-
     </div>
   );
 }

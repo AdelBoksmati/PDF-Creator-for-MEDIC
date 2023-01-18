@@ -10,7 +10,10 @@ function MyForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
+    //console log as JSON
+    console.log(JSON.stringify(formData));
+    // console .log the logo.svg as a json object
+    
   }
 
   return (

@@ -10,10 +10,16 @@ function MyForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    //console log as JSON
-    console.log(JSON.stringify(formData));
-    // console .log the logo.svg as a json object
-    
+
+    // Sending data to backend
+    fetch('http://example.com/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(response => console.log('Success:', JSON.stringify(response)))
+    .catch(error => console.error('Error:', error));
   }
 
   return (

@@ -11,8 +11,10 @@ function MyForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // console.log("https://localhost:7157/api/Person?"+JSON.stringify(formData));
+
     // Sending data to backend
-    fetch('http://example.com/api/submit', {
+    fetch('https://localhost:7157/api/Person?', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
@@ -54,7 +56,7 @@ function MyForm() {
         </label>
         <label>
         Province: 
-        <input type="text" name="state" onChange={handleChange} />
+        <input type="text" name="province" onChange={handleChange} />
         </label>
         <label>
         Zip Code:

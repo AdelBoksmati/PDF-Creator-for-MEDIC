@@ -16,4 +16,3 @@ The backend is built with the .NET framework and can be opened using the .sln fi
 2. Open the .sln file in the MEDIC5 directory and run the project in Visual Studio.
 3. The project should now be running on `http://localhost:3000/`
 
-Make sure to install all the dependencies for the project by running `npm install` in the terminal before starting the development server.

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "w7nQOM/jJpXqywzCbR6mwMszp1h81TV3XHCPkIWEr9iTmzB0daOogPtJahh6qbNrNk+MCXsYmFCPwUBZo1P4AQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\fire_\\Source\\Repos\\COMPCO867-Software-Engineering-Project\\MEDIC5\\MEDIC5\\MEDIC5.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\fire_\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\fire_\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\fire_\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\fire_\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\fire_\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\fire_\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

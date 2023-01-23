@@ -17,14 +17,14 @@ namespace MEDIC5.Controllers
 
 
         [HttpPost(Name = "CheckDetails")]
-        public ActionResult Details(string name, string email, string password, string confirmPassword, string phoneNumber, string address, string city, string province, string zipCode, string country, string dateOfBirth)
+        public ActionResult Details([FromBody] Person person)
         {
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword) || string.IsNullOrEmpty(phoneNumber) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(province) || string.IsNullOrEmpty(zipCode) || string.IsNullOrEmpty(country) || string.IsNullOrEmpty(dateOfBirth))
+            if (person == null || string.IsNullOrEmpty(person.Name) || string.IsNullOrEmpty(person.Email) || string.IsNullOrEmpty(person.Password) || string.IsNullOrEmpty(person.ConfirmPassword) || string.IsNullOrEmpty(person.PhoneNumber) || string.IsNullOrEmpty(person.Address) || string.IsNullOrEmpty(person.City) || string.IsNullOrEmpty(person.Province) || string.IsNullOrEmpty(person.ZipCode) || string.IsNullOrEmpty(person.Country) || string.IsNullOrEmpty(person.DateOfBirth))
             {
                 return BadRequest("Missing required fields");
             }
             //Additional validation and business logic goes here.
-            return Ok("This worked");
+            return Ok(new { message = "This worked" });
         }
 
 

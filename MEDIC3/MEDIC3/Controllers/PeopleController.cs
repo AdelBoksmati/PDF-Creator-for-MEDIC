@@ -47,8 +47,11 @@ namespace MEDIC3.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPerson(string id, Person person)
         {
+            Console.WriteLine("We got here");
+
             if (id != person.Name)
             {
+                
                 return BadRequest();
             }
 

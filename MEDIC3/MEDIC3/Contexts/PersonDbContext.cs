@@ -8,7 +8,7 @@ namespace MEDIC3.Contexts
         public DbSet<Person> People { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            :base(options)
+            : base(options)
         { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

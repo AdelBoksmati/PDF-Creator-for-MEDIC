@@ -26,7 +26,7 @@ namespace MEDIC5.Controllers
             {
                 return BadRequest("Missing required fields");
             }
-            //Additional validation and business logic goes here.
+            // TODO: Do a better job at validating the model
 
             var filePath = "PersonDocument.pdf";
 

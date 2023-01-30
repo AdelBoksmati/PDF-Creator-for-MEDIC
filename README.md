@@ -11,6 +11,7 @@ To run the React frontend, use the .vs and mp-app extension in VSCode. The front
 The backend is built with the .NET framework and can be opened using the .sln file in the MEDIC5 directory. The backend code can be found in the `Controllers` and `Models` directories. With the Document creation happening at the `Documents` folder.
 
 Downloaded the 'Microsoft.AspNetCore.Cors' with the NuGet application
+
 Downloaded the 'QuestPDF' with the NuGet application
 
 ## Running the project

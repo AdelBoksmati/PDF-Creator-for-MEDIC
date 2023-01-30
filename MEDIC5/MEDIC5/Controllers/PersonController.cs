@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MEDIC5.Models;
+using MEDIC5.Documents;
+using QuestPDF.Fluent;
+using System.Diagnostics;
 
 namespace MEDIC5.Controllers
 {
@@ -24,8 +27,24 @@ namespace MEDIC5.Controllers
                 return BadRequest("Missing required fields");
             }
             //Additional validation and business logic goes here.
+
+            var filePath = "PersonDocument.pdf";
+
+            var document = new PersonDoucument(person);
+            document.GeneratePdf(filePath);
+
+            Process.Start("explorer.exe", filePath);
+
             return Ok(new { message = "This worked" });
+
+
+
+
+
         }
+
+        
+
 
 
     }

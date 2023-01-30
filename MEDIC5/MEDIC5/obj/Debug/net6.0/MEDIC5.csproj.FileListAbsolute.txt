@@ -65,3 +65,15 @@ C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5
 C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\HarfBuzzSharp.dll
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\QuestPDF.dll
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\SkiaSharp.dll
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\SkiaSharp.HarfBuzz.dll
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\runtimes\osx\native\libHarfBuzzSharp.dylib
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\runtimes\win-x64\native\libHarfBuzzSharp.dll
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\runtimes\win-x86\native\libHarfBuzzSharp.dll
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\runtimes\osx\native\libSkiaSharp.dylib
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Users\fire_\Source\Repos\COMPCO867-Software-Engineering-Project\MEDIC5\MEDIC5\bin\Debug\net6.0\runtimes\win-x86\native\libSkiaSharp.dll

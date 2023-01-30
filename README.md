@@ -18,3 +18,8 @@ Downloaded the 'Microsoft.AspNetCore.Cors' with the NuGet application
 2. Open the .sln file in the MEDIC5 directory and run the project in Visual Studio.
 3. The project should now be running on `http://localhost:3000/`
 
+## Document Assembly
+The Documents folder is where the document assembly happens. It is "Scaffolded" from the Models folder. This is where the backend takes the data from the frontend and creates a PDF document.
+
+## Object Validation
+The Controllers folder is where the object validation takes place. This is where the backend ensures that the data received from the frontend is valid and appropriate before creating the PDF document. Once the validation is complete, the PDF document is sent back to the frontend.

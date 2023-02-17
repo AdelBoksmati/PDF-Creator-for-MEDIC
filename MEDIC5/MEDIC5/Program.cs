@@ -36,7 +36,6 @@ namespace MEDIC5
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();

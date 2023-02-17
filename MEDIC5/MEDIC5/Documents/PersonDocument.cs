@@ -6,11 +6,11 @@ using QuestPDF.Helpers;
 
 namespace MEDIC5.Documents
 {
-    public class PersonDoucument : IDocument
+    public class PersonDocument : IDocument
     {
         public Person Model { get; }
 
-        public PersonDoucument (Person person)
+        public PersonDocument (Person person)
         {
             Model = person;
         }
@@ -71,7 +71,6 @@ namespace MEDIC5.Documents
         {
             container
                 .PaddingVertical(40)
-                .Height(250)
                 .Background(Colors.Grey.Lighten3)
                 .AlignCenter()
                 .Column(column =>
@@ -86,6 +85,12 @@ namespace MEDIC5.Documents
                     column.Item().Text("Zip Code: " + Model.ZipCode).FontSize(14);
                     column.Item().Text("Country: " + Model.Country).FontSize(14);
                     column.Item().Text("Date of Birth: " + Model.DateOfBirth).FontSize(14);
+                    column.Item().Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel libero nec velit sagittis commodo non eu magna. Integer eget lectus id lacus rutrum semper in at libero. Praesent pellentesque laoreet aliquam. Quisque non libero quam. Duis auctor purus eget augue commodo, in tincidunt enim hendrerit. Sed eget pharetra ligula, at eleifend nisl.").FontSize(14);
+                    column.Item().Text("Aenean eget vestibulum velit. Sed in diam vel nulla sollicitudin aliquet vel et eros. Aenean vulputate, massa a faucibus tincidunt, nibh odio accumsan sem, eget pulvinar enim tellus in odio. Sed fringilla, ante vitae fringilla blandit, libero libero pellentesque orci, id congue risus lacus euismod lorem. Sed porttitor purus quis libero tempor, id efficitur orci commodo.").FontSize(14);
+                    column.Item().Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel libero nec velit sagittis commodo non eu magna. Integer eget lectus id lacus rutrum semper in at libero. Praesent pellentesque laoreet aliquam. Quisque non libero quam. Duis auctor purus eget augue commodo, in tincidunt enim hendrerit. Sed eget pharetra ligula, at eleifend nisl.").FontSize(14);
+                    column.Item().Text("Aenean eget vestibulum velit. Sed in diam vel nulla sollicitudin aliquet vel et eros. Aenean vulputate, massa a faucibus tincidunt, nibh odio accumsan sem, eget pulvinar enim tellus in odio. Sed fringilla, ante vitae fringilla blandit, libero libero pellentesque orci, id congue risus lacus euismod lorem. Sed porttitor purus quis libero tempor, id efficitur orci commodo.").FontSize(14);
+                    column.Item().Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel libero nec velit sagittis commodo non eu magna. Integer eget lectus id lacus rutrum semper in at libero. Praesent pellentesque laoreet aliquam. Quisque non libero quam. Duis auctor purus eget augue commodo, in tincidunt enim hendrerit. Sed eget pharetra ligula, at eleifend nisl.").FontSize(14);
+                    column.Item().Text("Aenean eget vestibulum velit. Sed in diam vel nulla sollicitudin aliquet vel et eros. Aenean vulputate, massa a faucibus tincidunt, nibh odio accumsan sem, eget pulvinar enim tellus in odio. Sed fringilla, ante vitae fringilla blandit, libero libero pellentesque orci, id congue risus lacus euismod lorem. Sed porttitor purus quis libero tempor, id efficitur orci commodo.").FontSize(14);
                     column.Item().Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel libero nec velit sagittis commodo non eu magna. Integer eget lectus id lacus rutrum semper in at libero. Praesent pellentesque laoreet aliquam. Quisque non libero quam. Duis auctor purus eget augue commodo, in tincidunt enim hendrerit. Sed eget pharetra ligula, at eleifend nisl.").FontSize(14);
                     column.Item().Text("Aenean eget vestibulum velit. Sed in diam vel nulla sollicitudin aliquet vel et eros. Aenean vulputate, massa a faucibus tincidunt, nibh odio accumsan sem, eget pulvinar enim tellus in odio. Sed fringilla, ante vitae fringilla blandit, libero libero pellentesque orci, id congue risus lacus euismod lorem. Sed porttitor purus quis libero tempor, id efficitur orci commodo.").FontSize(14);
                 });

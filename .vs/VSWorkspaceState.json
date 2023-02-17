@@ -4,8 +4,9 @@
     "\\MEDIC5",
     "\\MEDIC5\\MEDIC5",
     "\\MEDIC5\\MEDIC5\\Controllers",
-    "\\MEDIC5\\MEDIC5\\Documents"
+    "\\MEDIC5\\MEDIC5\\Documents",
+    "\\MEDIC5\\MEDIC5\\Models"
   ],
-  "SelectedNode": "\\MEDIC5\\MEDIC5\\Documents\\PersonDoucument.cs",
+  "SelectedNode": "\\MEDIC5\\MEDIC5\\Documents\\PersonDocument.cs",
   "PreviewInSolutionExplorer": false
 }

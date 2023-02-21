@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import SignatureCanvas from 'react-signature-canvas';
 
 function MyForm() {
   const [formData, setFormData] = useState({});
+  const sigPad = useRef();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -11,18 +13,25 @@ function MyForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // console.log("https://localhost:7157/api/Person?"+JSON.stringify(formData));
+    const signatureData = sigPad.current.toDataURL();
+    const updatedFormData = { ...formData, signature: signatureData };
+
+    console.log("https://localhost:7157/api/Person?"+JSON.stringify(updatedFormData));
 
     // Sending data to backend
-    fetch('https://localhost:7157/api/Person?', {
+    fetch('https://localhost:7157/api/Person/GeneratePDFSavedToServer/?', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
+      body: JSON.stringify(updatedFormData)
     })
     .then(res => res.json())
     .then(response => console.log('Success:', JSON.stringify(response)))
     .catch(error => console.error('Error:', error));
-  }
+  };
+
+  const handleClear = () => {
+    sigPad.current.clear();
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -71,8 +80,24 @@ function MyForm() {
         <input type="text" name="dateOfBirth" onChange={handleChange} />
         </label>
         
+
+        <SignatureCanvas
+        ref={sigPad}
+        canvasProps={{
+          style: {
+            background: 'white',
+            border: '1px solid white',
+            width: '100%',
+            height: '9rem'
+          }
+        }}
+      />
+      <button type="button" onClick={handleClear}>Clear Signature</button>
+
       <button type="submit">Submit</button>
+
     </form>
+
   );
 }
 

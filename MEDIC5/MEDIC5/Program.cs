@@ -17,13 +17,6 @@ namespace MEDIC5
 
             var app = builder.Build();
 
-            builder.Services.AddMvc(options =>
-            {
-                options.OutputFormatters.Add(new PdfOutputFormatter());
-                options.FormatterMappings.SetMediaTypeMappingForFormat("pdf", "application/pdf");
-            });
-
-
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

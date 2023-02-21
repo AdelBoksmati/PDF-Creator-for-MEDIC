@@ -22,12 +22,13 @@ namespace MEDIC5.Controllers
         [HttpPost("CheckDetails")]
         public async Task<ActionResult> Details([FromBody] Person person)
         {
-
             // TODO: Do a better job at validating the model
             if (person == null || string.IsNullOrEmpty(person.Name) || string.IsNullOrEmpty(person.Email) || string.IsNullOrEmpty(person.Password) || string.IsNullOrEmpty(person.ConfirmPassword) || string.IsNullOrEmpty(person.PhoneNumber) || string.IsNullOrEmpty(person.Address) || string.IsNullOrEmpty(person.City) || string.IsNullOrEmpty(person.Province) || string.IsNullOrEmpty(person.ZipCode) || string.IsNullOrEmpty(person.Country) || string.IsNullOrEmpty(person.DateOfBirth))
             {
                 return BadRequest("Missing required fields");
             }
+
+            Console.Write("CheckDetails section");
 
             // Generate the PDF document
             var document = new PersonDocument(person);
@@ -43,14 +44,11 @@ namespace MEDIC5.Controllers
             await Response.Body.WriteAsync(fileBytes, 0, fileBytes.Length);
 
             return Ok(new { message = "This worked" });
-            
         }
 
-
-        [HttpPost("GeneratePDFSavedToSever")]
+        [HttpPost("GeneratePDFSavedToServer")]
         public ActionResult Details2([FromBody] Person person)
         {
-
             // TODO: Do a better job at validating the model
             if (person == null || string.IsNullOrEmpty(person.Name) || string.IsNullOrEmpty(person.Email) || string.IsNullOrEmpty(person.Password) || string.IsNullOrEmpty(person.ConfirmPassword) || string.IsNullOrEmpty(person.PhoneNumber) || string.IsNullOrEmpty(person.Address) || string.IsNullOrEmpty(person.City) || string.IsNullOrEmpty(person.Province) || string.IsNullOrEmpty(person.ZipCode) || string.IsNullOrEmpty(person.Country) || string.IsNullOrEmpty(person.DateOfBirth))
             {
@@ -68,7 +66,6 @@ namespace MEDIC5.Controllers
             Process.Start("explorer.exe", filePath);
 
             return Ok(new { message = "This worked" });
-
         }
 
     }

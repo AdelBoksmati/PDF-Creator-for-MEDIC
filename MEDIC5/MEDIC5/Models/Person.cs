@@ -16,6 +16,6 @@ namespace MEDIC5.Models
         public string ZipCode { get; set; }
         public string Country { get; set; }
         public string DateOfBirth { get; set; }
-
+        public string Signature { get; set; }
     }
 }

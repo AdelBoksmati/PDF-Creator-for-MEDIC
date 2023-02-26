@@ -16,7 +16,7 @@ function MyForm() {
     const signatureData = sigPad.current.toDataURL();
     const updatedFormData = { ...formData, signature: signatureData };
 
-    console.log("https://localhost:7157/api/Person?"+JSON.stringify(updatedFormData));
+    // console.log("https://localhost:7157/api/Person?"+JSON.stringify(updatedFormData));
 
     // Sending data to backend
     fetch('https://localhost:7157/api/Person/GeneratePDFSavedToServer/?', {
@@ -28,6 +28,37 @@ function MyForm() {
     .then(response => console.log('Success:', JSON.stringify(response)))
     .catch(error => console.error('Error:', error));
   };
+
+  const handleSecondSubmit = (event) => {
+    event.preventDefault();
+
+    const signatureData = sigPad.current.toDataURL();
+    const updatedFormData = { ...formData, signature: signatureData };
+
+    // Sending data to backend
+    fetch('https://localhost:7157/api/Person/CheckDetails/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedFormData)
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.blob();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(blob => {
+            // create a link element to download the pdf file
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'PersonDocument.pdf';
+
+            // programmatically click the link to download the file
+            link.click();
+        })
+        .catch(error => console.error('Error:', error));
+    };
+
 
   const handleClear = () => {
     sigPad.current.clear();
@@ -95,6 +126,8 @@ function MyForm() {
       <button type="button" onClick={handleClear}>Clear Signature</button>
 
       <button type="submit">Submit</button>
+
+      <button type="submit" onClick={handleSecondSubmit}>Check Details</button>
 
     </form>
 

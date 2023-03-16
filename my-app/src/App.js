@@ -1,28 +1,41 @@
-import React, {  useState } from 'react';
-import './App.css';
-import MyForm from './form.js';
+import React, { useState } from 'react';
+import Form from './Form';
+import Signature from './Signature';
 
 function App() {
-
   const [formData, setFormData] = useState({});
+  const [showForm, setShowForm] = useState(true);
+  const [showSignature, setShowSignature] = useState(false);
 
-  function handleFormChange(event) {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value
-    });
-  }
+  const handleNext = () => {
+    setShowForm(false);
+    setShowSignature(true);
+  };
+
+  const handleBack = () => {
+    setShowForm(true);
+    setShowSignature(false);
+  };
+
+  const handleFormDataChange = (data) => {
+    setFormData(data);
+  };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Registration Form</h1>
-
-        <MyForm handleFormChange={handleFormChange}/>
-
-        
-
-      </header>
+      {showForm && (
+        <Form
+          onNext={handleNext}
+          onFormDataChange={handleFormDataChange}
+          formData={formData}
+        />
+      )}
+      {showSignature && (
+        <Signature
+          onBack={handleBack}
+          formData={formData}
+        />
+      )}
     </div>
   );
 }

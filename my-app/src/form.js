@@ -1,137 +1,74 @@
-import React, { useState, useRef } from 'react';
-import SignatureCanvas from 'react-signature-canvas';
+import React, { useState } from 'react';
 
-function MyForm() {
-  const [formData, setFormData] = useState({});
-  const sigPad = useRef();
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  }
+function Form({ onNext, onFormDataChange, formData }) {
+  const [name, setName] = useState(formData.name || '');
+  const [email, setEmail] = useState(formData.email || '');
+  const [password, setPassword] = useState(formData.password || '');
+  const [confirmPassword, setConfirmPassword] = useState(formData.confirmPassword || '');
+  const [phoneNumber, setPhone] = useState(formData.phoneNumber || '');
+  const [address, setAddress] = useState(formData.address || '');
+  const [city, setCity] = useState(formData.city || '');
+  const [province, setProvince] = useState(formData.province || '');
+  const [zipCode, setZipCode] = useState(formData.zipCode || '');
+  const [country, setCountry] = useState(formData.country || '');
+  const [dateOfBirth, setDateOfBirth] = useState(formData.dateOfBirth || '');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const signatureData = sigPad.current.toDataURL();
-    const updatedFormData = { ...formData, signature: signatureData };
-
-    // console.log("https://localhost:7157/api/Person?"+JSON.stringify(updatedFormData));
-
-    // Sending data to backend
-    fetch('https://localhost:7157/api/Person/GeneratePDFSavedToServer/?', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updatedFormData)
-    })
-    .then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
-    .catch(error => console.error('Error:', error));
-  };
-
-  const handleSecondSubmit = (event) => {
-    event.preventDefault();
-
-    const signatureData = sigPad.current.toDataURL();
-    const updatedFormData = { ...formData, signature: signatureData };
-
-    // Sending data to backend
-    fetch('https://localhost:7157/api/Person/CheckDetails/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedFormData)
-    })
-        .then(response => {
-            if (response.ok) {
-                return response.blob();
-            }
-            throw new Error('Network response was not ok.');
-        })
-        .then(blob => {
-            // create a link element to download the pdf file
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'PersonDocument.pdf';
-
-            // programmatically click the link to download the file
-            link.click();
-        })
-        .catch(error => console.error('Error:', error));
-    };
-
-
-  const handleClear = () => {
-    sigPad.current.clear();
+    const data = { name, email, password, confirmPassword, phoneNumber, address, city, province, zipCode, country, dateOfBirth };
+    onFormDataChange(data);
+    onNext();
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
         Name:
-        <input type="text" name="name" onChange={handleChange} />
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
       </label>
-        <label>
+      <label>
         Email:
-        <input type="text" name="email" onChange={handleChange} />
-        </label>
-        <label>
+        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+      </label>
+      <label>
         Password:
-        <input type="text" name="password" onChange={handleChange} />
-        </label>
-        <label>
+        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
+      </label>
+      <label>
         Confirm Password:
-        <input type="text" name="confirmPassword" onChange={handleChange} />
-        </label>
-        <label>
+        <input type="text" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+      </label>
+      <label>
         Phone Number:
-        <input type="text" name="phoneNumber" onChange={handleChange} />
-        </label>
-        <label>
+        <input type="text" value={phoneNumber} onChange={(e) => setPhone(e.target.value)} />
+      </label>
+      <label>
         Address:
-        <input type="text" name="address" onChange={handleChange} />
-        </label>
-        <label>
-        City: 
-        <input type="text" name="city" onChange={handleChange} />
-        </label>
-        <label>
-        Province: 
-        <input type="text" name="province" onChange={handleChange} />
-        </label>
-        <label>
+        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+      </label>
+      <label>
+        City:
+        <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+      </label>
+      <label>
+        Province:
+        <input type="text" value={province} onChange={(e) => setProvince(e.target.value)} />
+      </label>
+      <label>
         Zip Code:
-        <input type="text" name="zipCode" onChange={handleChange} />
-        </label>
-        <label>
+        <input type="text" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
+      </label>
+      <label>
         Country:
-        <input type="text" name="country" onChange={handleChange} />
-        </label>
-        <label>
+        <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
+      </label>
+      <label>
         Date of Birth:
-        <input type="text" name="dateOfBirth" onChange={handleChange} />
-        </label>
-        
-
-        <SignatureCanvas
-        ref={sigPad}
-        canvasProps={{
-          style: {
-            background: 'white',
-            border: '1px solid white',
-            width: '100%',
-            height: '9rem'
-          }
-        }}
-      />
-      <button type="button" onClick={handleClear}>Clear Signature</button>
-
-      <button type="submit">Submit</button>
-
-      <button type="submit" onClick={handleSecondSubmit}>Check Details</button>
-
+        <input type="text" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
+      </label>
+      <button type="submit">Next</button>
     </form>
-
   );
 }
 
-export default MyForm;
+export default Form;

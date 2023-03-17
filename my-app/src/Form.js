@@ -1,23 +1,37 @@
 import React, { useState } from 'react';
 
 function Form({ onNext, onFormDataChange, formData }) {
-  const [name, setName] = useState(formData.name || '');
-  const [email, setEmail] = useState(formData.email || '');
-  const [password, setPassword] = useState(formData.password || '');
-  const [confirmPassword, setConfirmPassword] = useState(formData.confirmPassword || '');
-  const [phoneNumber, setPhone] = useState(formData.phoneNumber || '');
-  const [address, setAddress] = useState(formData.address || '');
-  const [city, setCity] = useState(formData.city || '');
-  const [province, setProvince] = useState(formData.province || '');
-  const [zipCode, setZipCode] = useState(formData.zipCode || '');
-  const [country, setCountry] = useState(formData.country || '');
-  const [dateOfBirth, setDateOfBirth] = useState(formData.dateOfBirth || '');
+  const [name, setName] = useState(formData.name || 'John Doe');
+  const [email, setEmail] = useState(formData.email || 'john.doe@example.com');
+  const [password, setPassword] = useState(formData.password || 'password123');
+  const [confirmPassword, setConfirmPassword] = useState(formData.confirmPassword || 'password123');
+  const [phoneNumber, setPhone] = useState(formData.phoneNumber || '1234567890');
+  const [address, setAddress] = useState(formData.address || '123 Main Street');
+  const [city, setCity] = useState(formData.city || 'Anytown');
+  const [province, setProvince] = useState(formData.province || 'CA');
+  const [zipCode, setZipCode] = useState(formData.zipCode || '12345');
+  const [country, setCountry] = useState(formData.country || 'USA');
+  const [dateOfBirth, setDateOfBirth] = useState(formData.dateOfBirth || '01/01/1990');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = { name, email, password, confirmPassword, phoneNumber, address, city, province, zipCode, country, dateOfBirth };
     onFormDataChange(data);
     onNext();
+  };
+
+  const handleClearForm = () => {
+    setName('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+    setPhone('');
+    setAddress('');
+    setCity('');
+    setProvince('');
+    setZipCode('');
+    setCountry('');
+    setDateOfBirth('');
   };
 
   return (
@@ -67,6 +81,7 @@ function Form({ onNext, onFormDataChange, formData }) {
         <input type="text" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
       </label>
       <button type="submit">Next</button>
+      <button type="button" onClick={handleClearForm}>Clear</button>
     </form>
   );
 }

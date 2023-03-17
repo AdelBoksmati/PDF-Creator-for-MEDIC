@@ -1,11 +1,15 @@
 import React, { useRef } from 'react';
 import SignatureCanvas from 'react-signature-canvas';
 
-function Signature({ onBack, formData }) {
+function Signature({ onBack, formData, onConfirmation }) {
   const sigPad = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (sigPad.current.isEmpty()) {
+      alert('Please provide a signature.');
+      return;
+    }
     const signatureData = sigPad.current.toDataURL();
     const updatedFormData = { ...formData, signature: signatureData };
     console.log(formData, signatureData);
@@ -17,12 +21,21 @@ function Signature({ onBack, formData }) {
       body: JSON.stringify(updatedFormData)
     })
     .then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
+    .then(response => {
+      console.log('Success:', JSON.stringify(response));
+      sigPad.current.clear();
+      onConfirmation();
+    })
     .catch(error => console.error('Error:', error));
   };
 
   const handleSecondSubmit = (event) => {
     event.preventDefault();
+
+    if (sigPad.current.isEmpty()) {
+      alert('Please provide a signature.');
+      return;
+    }
 
     const signatureData = sigPad.current.toDataURL();
     const updatedFormData = { ...formData, signature: signatureData };
@@ -49,6 +62,9 @@ function Signature({ onBack, formData }) {
 
             // programmatically click the link to download the file
             link.click();
+
+            sigPad.current.clear();
+            onConfirmation();
         })
         .catch(error => console.error('Error:', error));
   };
